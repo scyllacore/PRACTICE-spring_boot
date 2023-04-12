@@ -1,5 +1,6 @@
 23/04/11
 
+jdbc:h2:tcp://localhost/~/jblog
 
 CREATE TABLE USERS(
 ID NUMBER(5) PRIMARY KEY,
@@ -9,6 +10,8 @@ EMAIL VARCHAR2(30)
 );
 
 INSERT INTO USERS(ID,USERNAME,PASSWORD,EMAIL) VALUES(1, 'guest', 'guest123', 'guest@gmail.com');
+
+intellj 우측 mavan - lifecycle - test run해서 의존 파일 다운로드 하기
 
 application 파일이 있는 곳에 패키지를 생성해야함.
 코드가 아닌 파일 이동 및 추가,삭제가 있을 시 reload from disk를 해줘야함.
