@@ -1,4 +1,3 @@
-#?? ??
 server:
   port: 8080
   servlet:
@@ -11,14 +10,23 @@ server:
 #server.servlet.context-path=/
 #server.servlet.encoding.charset=UTF-8
 
-#???? ??
-
 spring:
   mvc:
     view:
       prefix: /WEB-INF/jblog/
       suffix: .jsp
+  #datasource는 여기써야한다.
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:tcp://localhost/~/jblog
+    username: sa
+    password:
 
 #spring.mvc.view.prefix=/WEB-INF/jblog/
 #spring.mvc.view.suffix=.jsp
 
+# datasource:
+#   driver-class-name: org.h2.Driver
+#   url: jdbc:h2:tcp://localhost/~/jblog
+#   username: sa
+#   password: 들여쓰기 및 적용구간을 잘못봐서 오류가남.
