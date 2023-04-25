@@ -19,6 +19,13 @@ public class UserController {
     private UserRepository userRepository;
 
     //@Transactional -> save를 자동으로 해줌
+
+    @DeleteMapping("/user/{id}")
+    public @ResponseBody String deleteUser(@PathVariable int id){
+        userRepository.deleteById(id);
+        return "회원 삭제 성공";
+    }
+
     @PutMapping("/user")
     public @ResponseBody String updateUser(@RequestBody User user) {
         User findUser = userRepository.findById(user.getId()).orElseThrow(() -> {
