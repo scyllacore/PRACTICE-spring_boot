@@ -37,6 +37,6 @@ public class User {
     private RoleType role;
 
     @CreationTimestamp
-    private Time createDate;
+    private Timestamp createDate;
 
 }
