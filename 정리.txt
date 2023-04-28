@@ -21,5 +21,12 @@ webapp 폴더 생성안해서 오류
 23/04/25
 SQL 명령어는 한줄로 적는다
 
+23/04/28
+*의존성을 추가한 이 후에 다른 컴퓨터에서도 반드시 mvn 컴파일을 진행한다.
+
+C:\Users\Yoon\.m2\repository\org\webjars\bower\jquery\3.6.3\jquery-3.6.3.jar!\META-INF\resources\webjars\jquery\3.6.3\dist\jquery.min.js
+가 아니고
+
+\webjars\jquery\3.6.3\dist\jquery.min.js 이다.
 
 

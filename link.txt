@@ -15,3 +15,7 @@ https://www.samsungsds.com/kr/insights/java_jakarta.html
 
 23/04/25
 https://lejh.tistory.com/entry/SQL-SERVER-%EC%BB%AC%EB%9F%BC-%EC%9E%90%EB%8F%99-%EC%A6%9D%EA%B0%80%EA%B0%92IDENTITY-%EC%B4%88%EA%B8%B0%ED%99%94
+
+23/04/28
+https://mvnrepository.com/artifact/org.webjars/bootstrap/5.2.3
+https://www.inflearn.com/questions/267000/bootstrap-min-css%EA%B0%80-%EC%95%88-%EB%B3%B4%EC%9E%85%EB%8B%88%EB%8B%A4
