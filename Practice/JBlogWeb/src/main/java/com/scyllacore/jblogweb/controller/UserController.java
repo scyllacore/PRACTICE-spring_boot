@@ -1,38 +1,44 @@
 package com.scyllacore.jblogweb.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.function.Supplier;
-
-import com.scyllacore.jblogweb.exception.JBlogException;
-import org.springframework.transaction.annotation.Transactional;
-
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
-
-import com.scyllacore.jblogweb.domain.RoleType;
-import com.scyllacore.jblogweb.domain.User;
-import com.scyllacore.jblogweb.persistence.UserRepository;
+//
+//import java.util.List;
+//import java.util.function.Supplier;
+//
+//import com.scyllacore.jblogweb.exception.JBlogException;
+//import org.springframework.transaction.annotation.Transactional;
+//
+//import org.springframework.data.domain.Page;
+//import org.springframework.data.domain.PageRequest;
+//import org.springframework.data.domain.Pageable;
+//import org.springframework.data.domain.Sort;
+//import org.springframework.data.web.PageableDefault;
+//
+//import com.scyllacore.jblogweb.domain.RoleType;
+//import com.scyllacore.jblogweb.domain.User;
+//import com.scyllacore.jblogweb.persistence.UserRepository;
 
 
 @Controller
 public class UserController {
-    @Autowired
+    @GetMapping("/auth/insertUser")
+    public String insertUser(){
+        return "user/insertUser";
+    }
+
+
+   /* @Autowired
     private UserRepository userRepository;
 
-   /* @GetMapping("/user/page/{page}")
+    @GetMapping("/user/page/{page}")
     public @ResponseBody Page<User> getUserListPaging(@PathVariable int page){
         Pageable pageable =
                 PageRequest.of(page,2,Sort.Direction.DESC,"id","userName");
 
         return userRepository.findAll(pageable);
-    }*/
+    }
 
     @GetMapping("/user/page/{page}")
     public @ResponseBody Page<User> getUserListPaging(
@@ -87,6 +93,6 @@ public class UserController {
         user.setRole(RoleType.USER);
         userRepository.save(user);
         return user.getUserName() + " 회원가입 성공";
-    }
+    }*/
 
 }
