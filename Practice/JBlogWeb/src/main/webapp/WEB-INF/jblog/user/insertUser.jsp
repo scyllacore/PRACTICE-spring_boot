@@ -7,7 +7,7 @@
     <form>
         <div class="mb-3">
             <label for="userName">Username:</label>
-            <input type="text" class="form-control" id="userName" placeholder="Enter username" name="username">
+            <input type="text" class="form-control" id="userName" placeholder="Enter username" name="userName">
         </div>
         <div class="mb-3">
             <label for="pwd" class="form-label">Password:</label>

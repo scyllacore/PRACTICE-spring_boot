@@ -1,8 +1,10 @@
 package com.scyllacore.jblogweb.controller;
 
-//import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.HttpStatus;
+
 //
 //import java.util.List;
 //import java.util.function.Supplier;
@@ -17,15 +19,27 @@ import org.springframework.web.bind.annotation.*;
 //import org.springframework.data.web.PageableDefault;
 //
 //import com.scyllacore.jblogweb.domain.RoleType;
-//import com.scyllacore.jblogweb.domain.User;
+import com.scyllacore.jblogweb.domain.User;
+import com.scyllacore.jblogweb.dto.ResponseDTO;
+import com.scyllacore.jblogweb.service.UserService;
 //import com.scyllacore.jblogweb.persistence.UserRepository;
 
 
 @Controller
 public class UserController {
+
+    @Autowired
+    private UserService userService;
+
     @GetMapping("/auth/insertUser")
     public String insertUser(){
         return "user/insertUser";
+    }
+
+    @PostMapping("/auth/insertUser")
+    public @ResponseBody ResponseDTO<?> insertUser(@RequestBody User user){
+        userService.insertUser(user);
+        return new ResponseDTO<>(HttpStatus.OK.value(),user.getUserName() + "님 회원가입 성공!");
     }
 
 
