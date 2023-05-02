@@ -11,7 +11,7 @@
         </div>
         <div class="mb-3">
             <label for="pwd" class="form-label">Password:</label>
-            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="p wd">
+            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email:</label>
