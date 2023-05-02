@@ -19,3 +19,15 @@ https://lejh.tistory.com/entry/SQL-SERVER-%EC%BB%AC%EB%9F%BC-%EC%9E%90%EB%8F%99-
 23/04/28
 https://mvnrepository.com/artifact/org.webjars/bootstrap/5.2.3
 https://www.inflearn.com/questions/267000/bootstrap-min-css%EA%B0%80-%EC%95%88-%EB%B3%B4%EC%9E%85%EB%8B%88%EB%8B%A4
+
+23/05/02
+https://stackoverflow.com/questions/8021370/java-lang-noclassdeffounderror-javax-servlet-jsp-tagext-taglibraryvalidator
+https://mvnrepository.com/artifact/jakarta.servlet.jsp.jstl/jakarta.servlet.jsp.jstl-api/3.0.0
+https://stackoverflow.com/questions/74585710/migration-to-jakarta-ee-unable-to-find-taglib-c-for-uri-jakarta-tags-core
+https://youtrack.jetbrains.com/issue/IDEA-308542/JSTL-Jakarta-Standard-Tag-Library-3.0.0-has-a-new-namespace-and-URI-for-TLD-files-IntelliJ-does-not-recognise-this
+https://stackoverflow.com/questions/75200362/solvedintellij-idea-cannot-resolve-symbol-cout-when-using-jstl-3-0
+-> intellij는 jstl 3.0 지원을 안함
+
+https://youtrack.jetbrains.com/issue/IDEA-259636/No-intelligence-provided-by-intellij-for-jsp-jstl
+https://stackoverflow.com/questions/64597921/jakarta-servlet-servletexception-java-lang-noclassdeffounderror-javax-servlet
+-> 그래서 2.0 버전을 써야하는데, 기존에 깔려있던 1.2 버전과 충돌하여 제대로 동작하지 않음. 이에 따라 1.2를 지우고 2.0버전만 남겨두니 정상 동작.

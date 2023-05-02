@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,17 +15,35 @@
 
 <nav class="navbar navbar-expand-sm bg-light">
     <div class="container-fluid">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="/">Main</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/auth/login">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/auth/insertUser">Register</a>
-            </li>
-        </ul>
+        <c:if test="${sessionScope.principal == null}">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Main</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/auth/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/auth/insertUser">Register</a>
+                </li>
+            </ul>
+        </c:if>
+        <c:if test="${sessionScope.principal != null}">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Main</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/updateUser">회원 상세</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/post/insertPost">포스트 등록</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/auth/logout">로그아웃</a>
+                </li>
+            </ul>
+        </c:if>
     </div>
 </nav>
 

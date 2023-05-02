@@ -24,6 +24,12 @@ public class LoginController {
         return "system/login";
     }
 
+    @GetMapping("/auth/logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "redirect:/";
+    }
+
     @PostMapping("/auth/login")
     public @ResponseBody ResponseDTO<?> login(@RequestBody User user,HttpSession session) {
         User findUser = userService.getUser(user.getUserName());
