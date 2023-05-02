@@ -32,14 +32,20 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/auth/insertUser")
-    public String insertUser(){
+    public String insertUser() {
         return "user/insertUser";
     }
 
     @PostMapping("/auth/insertUser")
-    public @ResponseBody ResponseDTO<?> insertUser(@RequestBody User user){
-        userService.insertUser(user);
-        return new ResponseDTO<>(HttpStatus.OK.value(),user.getUserName() + "님 회원가입 성공!");
+    public @ResponseBody ResponseDTO<?> insertUser(@RequestBody User user) {
+        User findUser = userService.getUser(user.getUserName());
+        System.out.println(findUser.getUserName());
+
+        if (findUser.getUserName() == null) {
+            userService.insertUser(user);
+            return new ResponseDTO<>(HttpStatus.OK.value(), user.getUserName() + "님 회원가입 성공!");
+        }
+        return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), user.getUserName() + "님은 이미 회원입니다.");
     }
 
 
