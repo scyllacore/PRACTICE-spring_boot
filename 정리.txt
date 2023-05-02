@@ -29,4 +29,7 @@ C:\Users\Yoon\.m2\repository\org\webjars\bower\jquery\3.6.3\jquery-3.6.3.jar!\ME
 
 \webjars\jquery\3.6.3\dist\jquery.min.js 이다.
 
+23/05/02
+javax -> jakarta
+
 
