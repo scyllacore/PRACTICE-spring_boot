@@ -32,4 +32,7 @@ C:\Users\Yoon\.m2\repository\org\webjars\bower\jquery\3.6.3\jquery-3.6.3.jar!\ME
 23/05/02
 javax -> jakarta
 
+23/05/08
+@data @allargsconstructor
+
 
