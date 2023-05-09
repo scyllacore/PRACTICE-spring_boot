@@ -10,4 +10,8 @@ public class PostController {
         return "index";
     }
 
+    @GetMapping("/post/insertPost")
+    public String insertPost(){
+        return "post/insertPost";
+    }
 }

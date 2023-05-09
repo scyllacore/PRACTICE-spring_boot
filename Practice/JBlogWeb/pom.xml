@@ -83,6 +83,13 @@
 			<artifactId>jquery</artifactId>
 			<version>3.6.3</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.webjars.npm/summernote -->
+		<dependency>
+			<groupId>org.webjars.npm</groupId>
+			<artifactId>summernote</artifactId>
+			<version>0.8.20</version>
+		</dependency>
+
 	</dependencies>
 
 
