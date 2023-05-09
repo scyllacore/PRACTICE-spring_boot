@@ -10,9 +10,12 @@
     <link href="\webjars\bootstrap\5.2.3\css\bootstrap.min.css" rel="stylesheet">
     <script src="\webjars\bootstrap\5.2.3\js\bootstrap.bundle.min.js"></script>
     <script src="\webjars\jquery\3.6.3\dist\jquery.min.js"></script>
+    <!-- include summernote css/js -->
+    <link href="\webjars\summernote\0.8.20\dist\summernote-bs5.min.css" rel="stylesheet">
+    <script src="\webjars\summernote\0.8.20\dist\summernote-bs5.min.js"></script>
 </head>
-<body>
 
+<body>
 <nav class="navbar navbar-expand-sm bg-light">
     <div class="container-fluid">
         <c:if test="${sessionScope.principal == null}">
@@ -46,6 +49,3 @@
         </c:if>
     </div>
 </nav>
-
-</body>
-</html>
