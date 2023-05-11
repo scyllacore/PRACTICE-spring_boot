@@ -39,3 +39,6 @@ https://www.nowwatersblog.com/springboot/springstudy/lombok
 23/05/08
 https://codevang.tistory.com/258
 https://limreus.tistory.com/3
+
+23/05/11
+https://stackoverflow.com/questions/38699487/error-on-tomcat-embedded-startup
