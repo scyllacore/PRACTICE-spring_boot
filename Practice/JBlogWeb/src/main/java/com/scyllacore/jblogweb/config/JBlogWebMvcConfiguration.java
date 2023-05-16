@@ -9,6 +9,6 @@ public class JBlogWebMvcConfiguration implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry){
         registry.addInterceptor(
-                new AuthenticateInterceptor()).addPathPatterns("/");
+                new AuthenticateInterceptor()).addPathPatterns("/","/post/**");
     }
 }
