@@ -16,6 +16,11 @@ public class PostService {
     private PostRepository postRepository;
 
     @Transactional
+    public void deletePost(int id){
+        postRepository.deleteById(id);
+    }
+
+    @Transactional
     public void updatePost(Post post){
         Post findPost = postRepository.findById(post.getId()).get();
         findPost.setTitle(post.getTitle());

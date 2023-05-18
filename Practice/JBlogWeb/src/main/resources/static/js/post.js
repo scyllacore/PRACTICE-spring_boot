@@ -9,6 +9,9 @@ let postObj = {
         $("#btn-update").on("click", () => {
             _this.updatePost();
         });
+        $("#btn-delete").on("click", () => {
+            _this.deletePost();
+        });
     },
 
     insertPost: function () {
@@ -50,6 +53,26 @@ let postObj = {
             type: "PUT", // "Post" -> "POST" 수정.
             url: "/post",
             data: JSON.stringify(post),
+            contentType: "application/json; charset=utf-8"
+        }).done(function (response) {
+            let message = response["data"];
+            console.log(message);
+            location = "/";
+        }).fail(function (error) {
+            let message = error["data"];
+            alert("에러 발생 : " + message);
+        });
+
+    },
+
+    deletePost : function () {
+        alert("게시글 삭제 요청됨");
+
+        let id = $("#id").text();
+
+        $.ajax({
+            type: "DELETE", // "Post" -> "POST" 수정.
+            url: "/post/" + id,
             contentType: "application/json; charset=utf-8"
         }).done(function (response) {
             let message = response["data"];

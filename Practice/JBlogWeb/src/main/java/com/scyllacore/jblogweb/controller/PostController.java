@@ -19,8 +19,14 @@ public class PostController {
     @Autowired
     private PostService postService;
 
+    @DeleteMapping("/post/{id}")
+    public @ResponseBody ResponseDTO<?> deletePost(@PathVariable int id) {
+        postService.deletePost(id);
+        return new ResponseDTO<>(HttpStatus.OK.value(), id + "번 게시물을 삭제했습니다.");
+    }
+
     @PutMapping("/post")
-    public @ResponseBody ResponseDTO<?> updatessPost(@RequestBody Post post) {
+    public @ResponseBody ResponseDTO<?> updatePost(@RequestBody Post post) {
         postService.updatePost(post);
         return new ResponseDTO<>(HttpStatus.OK.value(),post.getId() + "번 게시물을 수정했습니다.");
     }
