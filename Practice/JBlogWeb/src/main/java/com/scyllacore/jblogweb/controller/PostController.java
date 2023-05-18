@@ -19,6 +19,19 @@ public class PostController {
     @Autowired
     private PostService postService;
 
+    @PutMapping("/post")
+    public @ResponseBody ResponseDTO<?> updatessPost(@RequestBody Post post) {
+        postService.updatePost(post);
+        return new ResponseDTO<>(HttpStatus.OK.value(),post.getId() + "번 게시물을 수정했습니다.");
+    }
+
+    @GetMapping("/post/updatePost/{id}")
+    public String updatePost(@PathVariable int id,Model model){
+        model.addAttribute("post",postService.getPost(id));
+        return "post/updatePost";
+    }
+
+
     @GetMapping("/post/{id}")
     public String getPost(@PathVariable int id,Model model){
         model.addAttribute("post",postService.getPost(id));
