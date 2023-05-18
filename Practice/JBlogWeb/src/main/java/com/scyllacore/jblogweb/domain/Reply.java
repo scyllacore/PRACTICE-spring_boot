@@ -8,36 +8,29 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Timestamp;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
-public class Post {
+public class Reply {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(nullable = false, length = 100)
-    private String title;
-
-    @Lob
-    @Column(nullable = false)
+    @Column(nullable = false, length = 200)
     private String content;
 
     @CreationTimestamp
     private Timestamp createDate;
 
-    private int count;
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "userId")
     private User user;
 
-    @OneToMany(mappedBy = "post",fetch = FetchType.EAGER)
-    @OrderBy("id desc")
-    private List<Reply> replyList;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "postId")
+    private Post post;
 
 }

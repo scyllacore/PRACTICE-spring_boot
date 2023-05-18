@@ -42,3 +42,6 @@ https://limreus.tistory.com/3
 
 23/05/11
 https://stackoverflow.com/questions/38699487/error-on-tomcat-embedded-startup
+
+23/05/18
+http://www.tcpschool.com/html-input-types/hidden
