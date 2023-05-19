@@ -8,15 +8,18 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ReplyController {
     @Autowired
     private ReplyService replyService;
+
+    @DeleteMapping("/reply/{replyId}")
+    public @ResponseBody ResponseDTO<?> deleteReply(@PathVariable int replyId){
+        replyService.deleteReply(replyId);
+        return new ResponseDTO<>(HttpStatus.OK.value(), replyId + "번 댓글을 삭제했습니다");
+    }
 
     @PostMapping("/reply/{postId}")
     public @ResponseBody ResponseDTO<?> insertReply(@PathVariable int postId,

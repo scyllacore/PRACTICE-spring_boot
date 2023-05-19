@@ -29,6 +29,22 @@ let replyObj = {
             alert("에러 발생 : " + error);
         });
     },
+
+    deleteReply: function (postId,replyId) {
+        alert("댓글 삭제 요청됨");
+
+        $.ajax({
+            type: "DELETE", // "Post" -> "POST" 수정.
+            url: "/reply/" + replyId
+        }).done(function (response) {
+            let messege = response["data"];
+            alert(messege);
+            location = "/post/" + postId;
+        }).fail(function (error) {
+            alert("에러 발생 : " + error);
+        });
+    },
+
 }
 
 replyObj.init();

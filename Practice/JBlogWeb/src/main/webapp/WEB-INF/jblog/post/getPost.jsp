@@ -46,28 +46,36 @@
         </table>
     </div>
 
-    <c: if test="${!empty post.replyList}">
+    <c:if test="${!empty post.replyList}">
         <div class="container mt-3">
             <table class="table">
                 <thead>
                 <tr>
                     <th width="80%">내용</th>
                     <th width="10%">작성자</th>
-                    <th width="10%">삭제</th>
+                    <c:if test="${reply.user.userName != null && reply.user.userName == principal.userName}">
+                        <th width="10%">삭제</th>
+                    </c:if>
+
+
                 </tr>
                 </thead>
                 <tbody>
                 <c:forEach var="reply" items="${post.replyList}">
                     <tr>
                         <td>${reply.content}</td>
-                        <td>${reply.userName}</td>
-                        <td><button>삭제</button></td>
+                        <td>${reply.user.userName}</td>
+                        <c:if test="${reply.user.userName != null && reply.user.userName  == principal.userName}">
+                            <td>
+                                <button onclick="replyObj.deleteReply(${post.id},${reply.id})">삭제</button>
+                            </td>
+                        </c:if>
                     </tr>
                 </c:forEach>
                 </tbody>
             </table>
         </div>
-    </c:>
+    </c:if>
 
 </div>
 

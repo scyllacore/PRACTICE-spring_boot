@@ -36,7 +36,7 @@ public class Post {
     @JoinColumn(name = "userId")
     private User user;
 
-    @OneToMany(mappedBy = "post",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "post",fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     @OrderBy("id desc")
     private List<Reply> replyList;
 
