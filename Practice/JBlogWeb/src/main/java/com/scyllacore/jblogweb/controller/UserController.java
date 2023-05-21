@@ -53,7 +53,7 @@ public class UserController {
     public @ResponseBody ResponseDTO<?> insertUser(
             @Valid @RequestBody UserDTO userDTO, BindingResult bindingResult) {
 
-        
+
         User user = modelMapper.map(userDTO, User.class);
         User findUser = userService.getUser(user.getUserName());
         System.out.println(findUser.getUserName());

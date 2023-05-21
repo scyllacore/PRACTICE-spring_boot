@@ -45,3 +45,6 @@ https://stackoverflow.com/questions/38699487/error-on-tomcat-embedded-startup
 
 23/05/18
 http://www.tcpschool.com/html-input-types/hidden
+
+23/05/21
+https://dkswnkk.tistory.com/521
