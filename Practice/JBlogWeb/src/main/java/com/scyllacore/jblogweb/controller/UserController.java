@@ -53,17 +53,7 @@ public class UserController {
     public @ResponseBody ResponseDTO<?> insertUser(
             @Valid @RequestBody UserDTO userDTO, BindingResult bindingResult) {
 
-        System.out.println(bindingResult.toString());
-
-        if (bindingResult.hasErrors()) {
-            Map<String, String> errorMap = new HashMap<>();
-            for (FieldError error : bindingResult.getFieldErrors()) {
-                errorMap.put(error.getField(), error.getDefaultMessage());
-            }
-            return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), errorMap);
-        }
-
-
+        
         User user = modelMapper.map(userDTO, User.class);
         User findUser = userService.getUser(user.getUserName());
         System.out.println(findUser.getUserName());

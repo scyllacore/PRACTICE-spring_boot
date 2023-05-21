@@ -59,14 +59,6 @@ public class PostController {
     public @ResponseBody ResponseDTO<?> insertPost(
             @Valid @RequestBody PostDTO postDTO, BindingResult bindingResult, HttpSession session) {
 
-        if(bindingResult.hasErrors()){
-            Map<String,String> errorMap = new HashMap<>();
-            for(FieldError fieldError : bindingResult.getFieldErrors()){
-                errorMap.put(fieldError.getField(), fieldError.getDefaultMessage());
-            }
-            return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), errorMap);
-        }
-
         Post post = modelMapper.map(postDTO,Post.class);
         User principal = (User) session.getAttribute("principal");
         post.setUser(principal);
