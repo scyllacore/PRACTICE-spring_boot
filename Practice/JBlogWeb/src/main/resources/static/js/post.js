@@ -30,9 +30,25 @@ let postObj = {
             data: JSON.stringify(post),
             contentType: "application/json; charset=utf-8"
         }).done(function (response) {
-            let message = response["data"];
-            console.log(message);
-            location = "/";
+            let status = response["status"];
+
+            if (status == 200) {
+                let message = response["data"];
+                console.log(message);
+                location = "/";
+            } else {
+                let warn = response["data"]; // 이 부분 어찌할지 생각해보기
+                // 코드를 추가하면서 id중복에 대한 alert 처리가 이상하게 됨.
+                let errors = response["data"];
+
+                if (errors.title != null) {
+                    warn += errors.title + "\n";
+                }
+                if (errors.content != null) {
+                    warn += errors.content;
+                }
+                alert(warn);
+            }
         }).fail(function (error) {
             alert("에러 발생 : " + error);
         });

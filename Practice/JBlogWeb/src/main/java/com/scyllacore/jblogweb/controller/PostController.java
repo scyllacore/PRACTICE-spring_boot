@@ -2,9 +2,12 @@ package com.scyllacore.jblogweb.controller;
 
 import com.scyllacore.jblogweb.domain.Post;
 import com.scyllacore.jblogweb.domain.User;
+import com.scyllacore.jblogweb.dto.PostDTO;
 import com.scyllacore.jblogweb.dto.ResponseDTO;
 import com.scyllacore.jblogweb.service.PostService;
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -12,12 +15,20 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class PostController {
     @Autowired
     private PostService postService;
+
+    @Autowired
+    private ModelMapper modelMapper;
 
     @DeleteMapping("/post/{id}")
     public @ResponseBody ResponseDTO<?> deletePost(@PathVariable int id) {
@@ -45,7 +56,18 @@ public class PostController {
     }
 
     @PostMapping("/post")
-    public @ResponseBody ResponseDTO<?> insertPost(@RequestBody Post post, HttpSession session) {
+    public @ResponseBody ResponseDTO<?> insertPost(
+            @Valid @RequestBody PostDTO postDTO, BindingResult bindingResult, HttpSession session) {
+
+        if(bindingResult.hasErrors()){
+            Map<String,String> errorMap = new HashMap<>();
+            for(FieldError fieldError : bindingResult.getFieldErrors()){
+                errorMap.put(fieldError.getField(), fieldError.getDefaultMessage());
+            }
+            return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), errorMap);
+        }
+
+        Post post = modelMapper.map(postDTO,Post.class);
         User principal = (User) session.getAttribute("principal");
         post.setUser(principal);
         post.setCount(0);
