@@ -1,7 +1,12 @@
 package com.scyllacore.jblogweb.controller;
 
+import com.scyllacore.jblogweb.dto.UserDTO;
+import jakarta.validation.Valid;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
 
@@ -22,6 +27,10 @@ import org.springframework.http.HttpStatus;
 import com.scyllacore.jblogweb.domain.User;
 import com.scyllacore.jblogweb.dto.ResponseDTO;
 import com.scyllacore.jblogweb.service.UserService;
+
+import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.Map;
 //import com.scyllacore.jblogweb.persistence.UserRepository;
 
 
@@ -31,6 +40,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private ModelMapper modelMapper;
+
     @GetMapping("/auth/insertUser")
     public String insertUser() {
         //System.out.println(9/0);
@@ -38,7 +50,21 @@ public class UserController {
     }
 
     @PostMapping("/auth/insertUser")
-    public @ResponseBody ResponseDTO<?> insertUser(@RequestBody User user) {
+    public @ResponseBody ResponseDTO<?> insertUser(
+            @Valid @RequestBody UserDTO userDTO, BindingResult bindingResult) {
+
+        System.out.println(bindingResult.toString());
+
+        if (bindingResult.hasErrors()) {
+            Map<String, String> errorMap = new HashMap<>();
+            for (FieldError error : bindingResult.getFieldErrors()) {
+                errorMap.put(error.getField(), error.getDefaultMessage());
+            }
+            return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), errorMap);
+        }
+
+
+        User user = modelMapper.map(userDTO, User.class);
         User findUser = userService.getUser(user.getUserName());
         System.out.println(findUser.getUserName());
 
