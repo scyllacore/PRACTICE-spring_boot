@@ -15,13 +15,13 @@
     <br>
     <div>
         포스트 번호 : <span id="id"><i>${post.id}</i></span><br>
-        작성자 : <span><i>${post.user.userName}</i></span>
+        작성자 : <span><i>${post.user.username}</i></span>
     </div>
 
     <hr>
     <button class="btn btn-secondary" onclick="history.back()">돌아가기</button>
 
-    <c:if test="${post.user.userName == principal.userName}">
+    <c:if test="${post.user.username == principal.username}">
         <a href="/post/updatePost/${post.id}" class="btn btn-warning">수정하기</a>
         <button id="btn-delete" class="btn btn-danger">삭제하기</button>
     </c:if>
@@ -53,7 +53,7 @@
                 <tr>
                     <th width="80%">내용</th>
                     <th width="10%">작성자</th>
-                    <c:if test="${reply.user.userName != null && reply.user.userName == principal.userName}">
+                    <c:if test="${reply.user.username != null && reply.user.username == principal.username}">
                         <th width="10%">삭제</th>
                     </c:if>
 
@@ -64,8 +64,8 @@
                 <c:forEach var="reply" items="${post.replyList}">
                     <tr>
                         <td>${reply.content}</td>
-                        <td>${reply.user.userName}</td>
-                        <c:if test="${reply.user.userName != null && reply.user.userName  == principal.userName}">
+                        <td>${reply.user.username}</td>
+                        <c:if test="${reply.user.username != null && reply.user.username  == principal.username}">
                             <td>
                                 <button onclick="replyObj.deleteReply(${post.id},${reply.id})">삭제</button>
                             </td>

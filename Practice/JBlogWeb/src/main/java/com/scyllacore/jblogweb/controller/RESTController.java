@@ -11,7 +11,7 @@ public class RESTController {
     public User httpGet(){
         User findUser = User.builder()
                 .id(1)
-                .userName("scyllacore")
+                .username("scyllacore")
                 .password("123")
                 .email("scyllacore@gmail.com")
                 .build();

@@ -16,7 +16,7 @@ public class UserService {
     private UserRepository userRepository;
 
     @Transactional(readOnly = true)
-    public User getUser(String userName){
+    public User getUser(String username){
         /*User findUser = userRepository.findByUserName(userName).orElseGet(
                 new Supplier<User>() {
                     @Override
@@ -26,7 +26,7 @@ public class UserService {
                 }
         );*/
 
-        User findUser = userRepository.findByUserName(userName).orElseGet(() -> {return new User();});
+        User findUser = userRepository.findByUsername(username).orElseGet(() -> {return new User();});
         //람라식에서 return을 쓸 때는 해당 코드를 중괄호로 감싸준다.
 
         return findUser;

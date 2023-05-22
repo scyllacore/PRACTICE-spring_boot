@@ -16,7 +16,7 @@ public class UserDTO {
     @NotNull(message = "username이 전달되지 않았습니다.")
     @NotBlank(message = "username을 입력해주세요")
     @Size(min = 1, max = 20, message = "username을 1~20글자 사이로 입력해주세요.")
-    private String userName;
+    private String username;
 
     @NotNull(message = "password가 전달되지 않았습니다.")
     @NotBlank(message = "password를 입력해주세요")

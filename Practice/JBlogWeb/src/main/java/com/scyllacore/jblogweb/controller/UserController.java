@@ -55,14 +55,14 @@ public class UserController {
 
 
         User user = modelMapper.map(userDTO, User.class);
-        User findUser = userService.getUser(user.getUserName());
-        System.out.println(findUser.getUserName());
+        User findUser = userService.getUser(user.getUsername());
+        System.out.println(findUser.getUsername());
 
-        if (findUser.getUserName() == null) {
+        if (findUser.getUsername() == null) {
             userService.insertUser(user);
-            return new ResponseDTO<>(HttpStatus.OK.value(), user.getUserName() + "님 회원가입 성공!");
+            return new ResponseDTO<>(HttpStatus.OK.value(), user.getUsername() + "님 회원가입 성공!");
         }
-        return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), user.getUserName() + "님은 이미 회원입니다.");
+        return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), user.getUsername() + "님은 이미 회원입니다.");
     }
 
 

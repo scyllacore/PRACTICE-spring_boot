@@ -18,7 +18,7 @@ let postObj = {
         alert("게시물 등록 요청됨");
 
         let post = {
-            title: $("#title").val(), // username : -> userName : 으로 수정.
+            title: $("#title").val(), // userName : -> username : 으로 수정.
             content: $("#content").val()
         }
 

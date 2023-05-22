@@ -6,12 +6,12 @@
 <div class = "container mt-3">
     <form>
         <div class="mb-3">
-            <label for="userName">Username:</label>
-            <input type="text" class="form-control" id="userName" placeholder="Enter username" name="userName">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter username" >
         </div>
         <div class="mb-3">
-            <label for="pwd" class="form-label">Password:</label>
-            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter password">
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email:</label>

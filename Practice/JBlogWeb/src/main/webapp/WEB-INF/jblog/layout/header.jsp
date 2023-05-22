@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+<sec:authorize access="isAuthenticated()">
+    <sec:authentication var="principal" property="principal"/>
+</sec:authorize>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +24,7 @@
 <body>
 <nav class="navbar navbar-expand-sm bg-light">
     <div class="container-fluid">
-        <c:if test="${sessionScope.principal == null}">
+        <c:if test="${principal == null}">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="/">Main</a>
@@ -32,7 +37,7 @@
                 </li>
             </ul>
         </c:if>
-        <c:if test="${sessionScope.principal != null}">
+        <c:if test="${principal != null}">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="/">Main</a>

@@ -11,7 +11,7 @@ let loginObj = {
         alert("로그인 요청됨");
 
         let data = {
-            userName : $("#userName").val(),
+            username : $("#username").val(),
             password : $("#pwd").val()
         }
 

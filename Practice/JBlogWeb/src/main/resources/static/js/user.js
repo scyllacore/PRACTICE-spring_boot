@@ -11,7 +11,7 @@ let userObj = {
         alert("회원가입 요청됨");
 
         let user = {
-            userName: $("#userName").val(), // username : -> userName : 으로 수정.
+            username: $("#username").val(),
             password: $("#pwd").val(),
             email: $("#email").val()
         }
@@ -35,8 +35,8 @@ let userObj = {
                 // 코드를 추가하면서 id중복에 대한 alert 처리가 이상하게 됨.
                 let errors = response["data"];
 
-                if (errors.userName != null) {
-                    warn += errors.userName + "\n";
+                if (errors.username != null) {
+                    warn += errors.username + "\n";
                 }
                 if (errors.password != null) {
                     warn += errors.password + "\n";

@@ -17,7 +17,7 @@ public class UserDAOTest {
     @Test
     void getUserListTest(){
         User user = new User();
-        user.setUserName("test");
+        user.setUsername("test");
         user.setPassword("123");
         user.setEmail("test@gmail");
 
