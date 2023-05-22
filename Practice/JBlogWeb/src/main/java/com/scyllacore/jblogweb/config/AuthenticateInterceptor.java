@@ -1,4 +1,4 @@
-package com.scyllacore.jblogweb.config;
+/*package com.scyllacore.jblogweb.config;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -25,4 +25,4 @@ public class AuthenticateInterceptor implements HandlerInterceptor {
     }
 
 
-}
+}*/
