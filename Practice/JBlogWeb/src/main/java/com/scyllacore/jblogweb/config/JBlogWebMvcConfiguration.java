@@ -39,10 +39,10 @@ public class JBlogWebMvcConfiguration implements WebMvcConfigurer {
         return new ModelMapper();
     }
 
-    /*@Override
+    @Override
     public void addInterceptors(InterceptorRegistry registry){
-        registry.addInterceptor(
-                new AuthenticateInterceptor()).addPathPatterns("/","/post/**");
+       /*registry.addInterceptor(
+                new AuthenticateInterceptor()).addPathPatterns("/","/post/**");*/
         registry.addInterceptor(localeChangeInterceptor());
-    }*/
+    }
 }

@@ -1,3 +1,4 @@
+/*
 let loginObj = {
     init: function () {
         let _this = this;
@@ -34,3 +35,4 @@ let loginObj = {
 }
 
 loginObj.init();
+*/
