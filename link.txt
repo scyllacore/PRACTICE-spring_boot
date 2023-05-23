@@ -48,3 +48,8 @@ http://www.tcpschool.com/html-input-types/hidden
 
 23/05/21
 https://dkswnkk.tistory.com/521
+
+23/05/22
+https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs/6.1.0
+https://sennieworld.tistory.com/109
+https://docs.spring.io/spring-security/site/docs/4.0.x/apidocs/org/springframework/security/core/userdetails/User.html
