@@ -16,7 +16,11 @@ public class JBlogWebSecurityConfiguration {
                 .requestMatchers("/post/**").authenticated();
         http.authorizeHttpRequests().anyRequest().permitAll();
 
-        http.formLogin();
+        http.csrf().disable();
+
+        http.formLogin().loginPage("/auth/login");
+        http.formLogin().loginProcessingUrl("/auth/securitylogin");
+        http.logout().logoutUrl("/auth/logout").logoutSuccessUrl("/");
 
         return http.build();
     }

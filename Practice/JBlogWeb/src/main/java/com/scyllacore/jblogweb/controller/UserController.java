@@ -43,6 +43,11 @@ public class UserController {
     @Autowired
     private ModelMapper modelMapper;
 
+    @GetMapping("auth/login")
+    public String login(){
+        return "system/login";
+    }
+
     @GetMapping("/auth/insertUser")
     public String insertUser() {
         //System.out.println(9/0);
