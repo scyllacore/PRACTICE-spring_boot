@@ -12,11 +12,11 @@ let userObj = {
 
         let user = {
             username: $("#username").val(),
-            password: $("#pwd").val(),
+            password: $("#password").val(),
             email: $("#email").val()
         }
 
-        //console.log(user);
+        console.log(user);
 
         $.ajax({
             type: "POST", // "Post" -> "POST" 수정.
