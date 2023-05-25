@@ -43,6 +43,11 @@ public class UserController {
     @Autowired
     private ModelMapper modelMapper;
 
+    @GetMapping("/user/updateUser")
+    public String updateUser(){
+        return "user/updateUser";
+    }
+
     @GetMapping("auth/login")
     public String login(){
         return "system/login";
@@ -52,6 +57,12 @@ public class UserController {
     public String insertUser() {
         //System.out.println(9/0);
         return "user/insertUser";
+    }
+
+    @PutMapping("/user")
+    public @ResponseBody ResponseDTO<?> updateUser(@RequestBody User user){
+        userService.updateUser(user);
+        return new ResponseDTO<>(HttpStatus.OK.value(), user.getUsername() + "님 회원정보 수정 완료.");
     }
 
     @PostMapping("/auth/insertUser")

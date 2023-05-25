@@ -5,6 +5,10 @@ let userObj = {
         $("#btn-save").on("click", () => {
             _this.insertUser();
         });
+
+        $("#btn-update").on("click", () => {
+            _this.updateUser();
+        });
     },
 
     insertUser: function () {
@@ -52,6 +56,35 @@ let userObj = {
         });
 
     },
+
+    updateUser: function () {
+        alert("회원 정보 수정 요청");
+
+        let user = {
+            id: $("#id").val(),
+            username: $("#username").val(),
+            password: $("#password").val(),
+            email: $("#email").val()
+        }
+
+        console.log(user);
+
+        $.ajax({
+            type: "PUT",
+            url: "/user",
+            data: JSON.stringify(user),
+            contentType: "application/json; charset=utf-8"
+        }).done(function (response) {
+            let message = response["data"];
+            console.log(message);
+            location = "/";
+
+        }).fail(function (error) {
+            alert("에러 발생 : " + error);
+        });
+
+    },
+
 }
 
 userObj.init();
