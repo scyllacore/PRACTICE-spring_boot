@@ -20,11 +20,13 @@ public class UserService {
     private PasswordEncoder passwordEncoder;
 
     @Transactional
-    public void updateUser(User user){
+    public User updateUser(User user){
         User findUser = userRepository.findById(user.getId()).get();
         findUser.setUsername(user.getUsername());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         findUser.setEmail(user.getEmail());
+
+        return findUser;
     }
 
 

@@ -1,9 +1,11 @@
 package com.scyllacore.jblogweb.controller;
 
 import com.scyllacore.jblogweb.dto.UserDTO;
+import com.scyllacore.jblogweb.security.UserDetailsImpl;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -60,8 +62,9 @@ public class UserController {
     }
 
     @PutMapping("/user")
-    public @ResponseBody ResponseDTO<?> updateUser(@RequestBody User user){
-        userService.updateUser(user);
+    public @ResponseBody ResponseDTO<?> updateUser(@RequestBody User user
+    , @AuthenticationPrincipal UserDetailsImpl principal){
+        principal.setUser(userService.updateUser(user));
         return new ResponseDTO<>(HttpStatus.OK.value(), user.getUsername() + "님 회원정보 수정 완료.");
     }
 
