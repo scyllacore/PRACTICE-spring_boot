@@ -4,6 +4,7 @@ import com.scyllacore.jblogweb.domain.Post;
 import com.scyllacore.jblogweb.domain.User;
 import com.scyllacore.jblogweb.dto.PostDTO;
 import com.scyllacore.jblogweb.dto.ResponseDTO;
+import com.scyllacore.jblogweb.security.UserDetailsImpl;
 import com.scyllacore.jblogweb.service.PostService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -13,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -57,11 +59,12 @@ public class PostController {
 
     @PostMapping("/post")
     public @ResponseBody ResponseDTO<?> insertPost(
-            @Valid @RequestBody PostDTO postDTO, BindingResult bindingResult, HttpSession session) {
+            @Valid @RequestBody PostDTO postDTO, BindingResult bindingResult
+            ,@AuthenticationPrincipal UserDetailsImpl principal) {
 
         Post post = modelMapper.map(postDTO,Post.class);
-        User principal = (User) session.getAttribute("principal");
-        post.setUser(principal);
+        //User principal = (User) session.getAttribute("principal");
+        post.setUser(principal.getUser());
         post.setCount(0);
 
         postService.insertPost(post);
